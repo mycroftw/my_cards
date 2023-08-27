@@ -10,11 +10,10 @@ Thinks: check for made card and warn/make?
 """
 import itertools
 import re
+import subprocess
 from argparse import ArgumentParser, Namespace
 from enum import Enum
 from pathlib import Path
-
-import requests
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE = PROJECT_DIR / '.README.tmpl.md'
@@ -80,10 +79,24 @@ class BuildFiles:
         return missing
 
     @staticmethod
-    def _build_file(file: Path) -> None:
-        """Build the file."""
-        # stub for now
-        print(f"pdflatex {file.name}")
+    def _build_file(tex_file: Path) -> None:
+        """Build the file (twice, just in case)."""
+        for _ in range(2):
+            try:
+                status = subprocess.run(
+                    ['pdflatex',
+                     '-halt-on-error',
+                     '-output-directory',
+                     f'{PROJECT_DIR}/out',
+                     tex_file, ],
+                    capture_output=True,
+                    check=True,
+                )
+            except subprocess.CalledProcessError as e:
+                print("Build FAILED!")
+                print(f"stdout:\n{e.stdout.decode()}")
+                print(f"\nstderr:\n{e.stderr.decode()}")
+                raise
 
     @staticmethod
     def _do_build_nothing() -> None:
@@ -95,15 +108,20 @@ class BuildFiles:
 
     def _do_build_missing(self) -> None:
         for missing in self._check_missing():
+            print('Building missing PDF file: '
+                  f"{missing.with_suffix('.pdf').name}")
             self._build_file(missing)
 
     def _do_build_all(self) -> None:
-        for file in (PROJECT_DIR / 'src').glob('*.tex'):
-            self._build_file(file)
+        print(f"Building all files in {PROJECT_DIR}/src!")
+        for f in (PROJECT_DIR / 'src').glob('*.tex'):
+            print(f"Building: {f.with_suffix('.pdf').name}")
+            self._build_file(f)
 
     def do_build(self) -> None:
         """DTRT based on request"""
         getattr(self, f'_do_build_{self.build.name.lower()}')()
+
 
 class MakeReadme:
 
@@ -114,7 +132,7 @@ class MakeReadme:
     @staticmethod
     def _make_list() -> str:
         cardlist = []
-        pattern = re.compile('README: \[([^]]*)\]')
+        pattern = re.compile('README: \[([^]]*)]')
         for f in Path(PROJECT_DIR / 'out').glob('*.pdf'):
             comment = f"{f.stem} card"
             src = f.parent.parent / 'src' / f"{f.stem}.tex"
@@ -156,8 +174,8 @@ def parse_args() -> Namespace:
     )
     return parser.parse_args()
 
-def main():
 
+def main():
     args = parse_args()
     BuildFiles(args.build_output).do_build()
     readme = MakeReadme(args.template)
