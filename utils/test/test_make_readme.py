@@ -1,5 +1,6 @@
 import contextlib
 import io
+from subprocess import CalledProcessError
 import unittest
 from pathlib import Path
 from unittest.mock import call, patch
@@ -39,6 +40,8 @@ class TestBuild(unittest.TestCase):
 
     def setUp(self) -> None:
         self.files_to_delete = []
+        self.patch_project_dir = patch('utils.make_readme.PROJECT_DIR',
+                                       FAKE_PROJECT_DIR)
 
     def test_parse_build_option(self):
         """Ensure consistent build values"""
@@ -92,22 +95,46 @@ class TestBuild(unittest.TestCase):
     @patch(BUILD_FILE)
     def test_build_all(self, build_file):
         """Ensure build option all builds all files"""
-        with patch('utils.make_readme.PROJECT_DIR', FAKE_PROJECT_DIR):
+        with self.patch_project_dir:
             mr.BuildFiles('a').do_build()
         for file in (FAKE_PROJECT_DIR / 'src').glob('*.tex'):
             build_file.assert_any_call(file)
 
     def test_check_missing(self):
-        with patch('utils.make_readme.PROJECT_DIR', FAKE_PROJECT_DIR):
+        with self.patch_project_dir:
             missing = mr.BuildFiles('c')._check_missing()
         self.assertEqual([FAKE_PROJECT_DIR / 'src' / 'test2.tex'], missing)
 
     def test_build_file(self):
-        source = FAKE_PROJECT_DIR / 'src' / 'test2.tex'
-        mr.BuildFiles('m')._build_file(source)
-        dest = FAKE_PROJECT_DIR / 'out' / 'test2.pdf'
+        source = FAKE_PROJECT_DIR / 'src' / 'test3.tex'
+        dest = FAKE_PROJECT_DIR / 'out' / 'test3.pdf'
+        # mark output and auxiliary files for cleanup
+        self.files_to_delete.extend([
+            dest.with_suffix('.aux'),
+            dest.with_suffix('.log'),
+        ])
+
+        with self.patch_project_dir:
+            mr.BuildFiles('m')._build_file(source)
         self.assertTrue(dest.exists())
-        self.files_to_delete.append(dest)
+        log = dest.with_suffix('.log').read_text()
+        self.assertIn(f"Output written on {dest}",
+                      log.replace('\n', ''))  # strip newlines
+
+    def test_build_broken_file(self):
+        source = FAKE_PROJECT_DIR / 'src' / 'test2.tex'
+        dest = FAKE_PROJECT_DIR / 'out' / 'test2.pdf'
+        # mark output and auxiliary files for cleanup
+        self.files_to_delete.extend([
+            dest,
+            dest.with_suffix('.aux'),
+            dest.with_suffix('.log'),
+        ])
+
+        with self.patch_project_dir, self.assertRaises(CalledProcessError):
+            mr.BuildFiles('m')._build_file(source)
+        log = dest.with_suffix('.log').read_text()
+        self.assertIn('\\broken', log.replace('\n', ''))
 
     def tearDown(self) -> None:
         """Clean up"""
@@ -124,11 +151,24 @@ class TestMakeReadme(unittest.TestCase):
 
     def setUp(self) -> None:
         self._delete_readme()
+        self.patch_readme = patch('utils.make_readme.OUTPUT', self.README)
+        self.patch_project_dir = patch('utils.make_readme.PROJECT_DIR',
+                                       FAKE_PROJECT_DIR)
+
+    def test_build_list(self):
+        """Test the _build_list function."""
+        with self.patch_project_dir:
+            cardtext = mr.MakeReadme()._make_list()
+        cardlist = cardtext.split('\n')  # easier to evaluate as list of strings
+        self.assertEqual(len(cardlist), 2)
+        self.assertIn(f"- [test1](out/test1.pdf)", cardlist[0])
+        self.assertIn('used only for tests', cardlist[0])
+        self.assertIn(f"- [test3](out/test3.pdf)", cardlist[1])
+        self.assertIn(f"test3 card", cardlist[1])
 
     def test_make_readme(self):
         """Ensure readme made properly"""
-        with patch('utils.make_readme.OUTPUT', self.README), \
-                patch('utils.make_readme.PROJECT_DIR', FAKE_PROJECT_DIR):
+        with self.patch_project_dir, self.patch_readme:
             mr.MakeReadme(FAKE_PROJECT_DIR / 'tmpl.md').make_readme()
         self.assertTrue(self.README.exists())
         self.assertEqual(
