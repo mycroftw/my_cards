@@ -15,6 +15,7 @@ Made with [mycroftw/conv-cards](https://github.com/mycroftw/conv-cards) template
   "just played to confuse."  Very aggressive preempts, very sound constructive openers, more natural than your system.
 - [Janet](out/Janet.pdf) - JanetG 2/1 with Toronto influences.
 - [Jimmy](out/MF-JR.pdf) - Pretty standard Lakeside 2/1.
+- [Marcia](out/Marcia.pdf) - Calgary 2/1
 - [Tom N](out/MF-TomN.pdf) - Bernie-standard 2/1, played with Tom in Calgary.
 
 ## License
