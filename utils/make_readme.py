@@ -14,7 +14,7 @@ from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE = PROJECT_DIR / '.README.tmpl.md'
-OUTPUT = PROJECT_DIR / 'AUTOREADME.md'
+OUTPUT = PROJECT_DIR / 'README.md'
 
 
 class BuildFiles:
@@ -136,7 +136,7 @@ class MakeReadme:
             try:
                 fulltext = src.read_text()
                 match = pattern.search(fulltext)
-                if match is not None:
+                if match is not None and match[1]:
                     comment = match[1]
             except FileNotFoundError:
                 print(f"WARNING: could not find source {src} for card {f}")
