@@ -1,5 +1,6 @@
 import contextlib
 import io
+import shutil
 from subprocess import CalledProcessError
 import unittest
 from pathlib import Path
@@ -143,7 +144,6 @@ class TestBuild(unittest.TestCase):
 
 
 class TestMakeReadme(unittest.TestCase):
-
     README = Path(FAKE_PROJECT_DIR / 'README.md')
 
     def _delete_readme(self) -> None:
@@ -154,6 +154,7 @@ class TestMakeReadme(unittest.TestCase):
         self.patch_readme = patch('utils.make_readme.OUTPUT', self.README)
         self.patch_project_dir = patch('utils.make_readme.PROJECT_DIR',
                                        FAKE_PROJECT_DIR)
+        self.files_to_delete = []
 
     def test_build_list(self):
         """Test the _build_list function."""
@@ -176,11 +177,63 @@ class TestMakeReadme(unittest.TestCase):
             Path(FAKE_PROJECT_DIR / 'correct_README.md').read_text()
         )
 
+    def test_extra_pdf_file(self):
+        """Should work, but produce a "hey, don't have a template" warning"""
+        outfile = FAKE_PROJECT_DIR / 'out' / 'test4.pdf'
+        shutil.copy(outfile.with_stem('test3'), outfile)
+        self.files_to_delete.append(outfile)
+        f = io.StringIO()
+        with contextlib.redirect_stdout(f), \
+                self.patch_project_dir, self.patch_readme:
+            mr.MakeReadme(FAKE_PROJECT_DIR / 'tmpl.md').make_readme()
+        output = f.getvalue()
+        self.assertTrue(self.README.exists())
+        self.assertIn('WARNING:', output)
+        self.assertIn(f"{outfile.name}", output)
+        self.assertIn(f"{outfile.with_suffix('.tex').name}", output)
+
     def tearDown(self) -> None:
         self._delete_readme()
+        for f in self.files_to_delete:
+            f.unlink(missing_ok=True)
 
 
 class TestFailures(unittest.TestCase):
-    def test_failure_cases(self):
-        """Test broken stuff crashes properly"""
-        self.assertEqual(1, 0)
+    """Test broken stuff crashes properly"""
+
+    def test_usage(self):
+        f = io.StringIO()
+        with contextlib.redirect_stdout(f), self.assertRaises(SystemExit), \
+                patch("sys.argv", ['make_readme.py', '-h']):
+            _ = mr.parse_args()
+        output = f.getvalue()
+        self.assertIn('options:', output)
+
+    def test_missing_template(self):
+        f = io.StringIO()
+        with contextlib.redirect_stderr(f), self.assertRaises(SystemExit), \
+                patch("sys.argv", ['make_readme.py', '-t']):
+            _ = mr.parse_args()
+        output = f.getvalue()
+        self.assertIn('expected one argument', output)
+
+    def test_missing_option(self):
+        f = io.StringIO()
+        with contextlib.redirect_stderr(f), self.assertRaises(SystemExit), \
+                patch("sys.argv", ['make_readme.py', '-o']):
+            _ = mr.parse_args()
+        output = f.getvalue()
+        self.assertIn('expected one argument', output)
+
+    def test_bad_option(self):
+        f = io.StringIO()
+        with contextlib.redirect_stderr(f), self.assertRaises(SystemExit), \
+                patch("sys.argv", ['make_readme.py', '-o', 'q']):
+            _ = mr.parse_args()
+        output = f.getvalue()
+        self.assertIn('invalid choice', output)
+
+    def test_bad_option_build_file(self):
+        """In case the argparse lets something bad through"""
+        with self.assertRaises(ValueError):
+            mr.BuildFiles('q').do_build()

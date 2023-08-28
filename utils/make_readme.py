@@ -1,17 +1,14 @@
 """ Make readme with links to cards.
 
 Using a template, add a list of linked entries for each output card.None
-
 Read the card for a README: comment; if it exists, use it as an explanation
 link.
-
-Thinks: check for made card and warn/make?
-
 """
+
 import itertools
 import re
 import subprocess
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser, Namespace, RawTextHelpFormatter
 from enum import Enum
 from pathlib import Path
 
@@ -83,7 +80,7 @@ class BuildFiles:
         """Build the file (twice, just in case)."""
         for _ in range(2):
             try:
-                status = subprocess.run(
+                subprocess.run(
                     ['pdflatex',
                      '-halt-on-error',
                      '-output-directory',
@@ -141,7 +138,7 @@ class MakeReadme:
                 match = pattern.search(fulltext)
                 if match is not None:
                     comment = match[1]
-            except FileExistsError:
+            except FileNotFoundError:
                 print(f"WARNING: could not find source {src} for card {f}")
             cardlist.append(f"- [{f.stem}](out/{f.name}): {comment}")
 
@@ -157,20 +154,26 @@ class MakeReadme:
 
 
 def parse_args() -> Namespace:
-    parser = ArgumentParser()
+    parser = ArgumentParser(description='Build README file from made cards,'
+                            'and check for unbuilt cards.',
+                            formatter_class=RawTextHelpFormatter)
     parser.add_argument(
         '--template', '-t',
         default=TEMPLATE,
         help=f'The template file.  Default is {TEMPLATE}'
     )
+    output_choices = (itertools.chain(BuildFiles.OPTIONS_NOTHING,
+                              BuildFiles.OPTIONS_CHECK,
+                              BuildFiles.OPTIONS_MISSING,
+                              BuildFiles.OPTIONS_ALL))
     parser.add_argument(
         '--build_output', '-o',
-        choices=itertools.chain(BuildFiles.OPTIONS_NOTHING,
-                                BuildFiles.OPTIONS_CHECK,
-                                BuildFiles.OPTIONS_MISSING,
-                                BuildFiles.OPTIONS_ALL),
+        choices=output_choices,
         default='check-only',
-        help='what to do with missing output files'
+        help=('what to do with missing output files.Options: \n'
+              '    No, Check-only, build-Missing, build-All.\nCan abbreviate '
+              'to capitalized letter or word'),
+        metavar='{options}'
     )
     return parser.parse_args()
 
