@@ -4,19 +4,13 @@ Made with [mycroftw/conv-cards](https://github.com/mycroftw/conv-cards) template
 
 ## List of cards
 
-<!-- Find an auto-creator that will update on demand or even on pre-push.
-     It does look like `gitdown` will happily make things; and then have
-     something that hooks into the pycharm git push?
--->
-
-- [CarolC](out/CarolC.pdf) - Mycroft and Ellen's card with Carol.
-- [Ellen K/S](out/MF-EK-KS.pdf) - Our "normal" system.  K/S (2/1, weak NT) with Keri, Power Doubles and other weirdness.
-- [Ellen EHAA](out/Ellen-EHAA.pdf) - When we're being weird, or when the opponents complain our normal system is
-  "just played to confuse."  Very aggressive preempts, very sound constructive openers, more natural than your system.
-- [Janet](out/Janet.pdf) - JanetG 2/1 with Toronto influences.
-- [Jimmy](out/MF-JR.pdf) - Pretty standard Lakeside 2/1.
-- [Marcia](out/Marcia.pdf) - Calgary 2/1
-- [Tom N](out/MF-TomN.pdf) - Bernie-standard 2/1, played with Tom in Calgary.
+- [CarolC](out/CarolC.pdf): Michael and Ellen's card with Carol.
+- [Ellen-EHAA](out/Ellen-EHAA.pdf): When we're being weird, or when the opponents complain our normal system is "just played to confuse. Very aggressive preempts, very sound constructive openers, more natural than your system.
+- [Janet](out/Janet.pdf): JanetG 2/1, Toronto style.
+- [Marcia](out/Marcia.pdf): Marcia card
+- [MF-EK-KS](out/MF-EK-KS.pdf): Our "normal" system.  K/S (2/1, weak NT) with Keri, Power Doubles and other weirdness.
+- [MF-JR](out/MF-JR.pdf): Pretty standard Lakeside 2/1.
+- [MF-TomN](out/MF-TomN.pdf): Bernie-standard 2/1.
 
 ## License
 
