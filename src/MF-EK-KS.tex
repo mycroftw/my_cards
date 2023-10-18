@@ -160,7 +160,7 @@
 \setboolean{ra2nt}{true} %Jacoby
 \setboolean{ra3nt}{true} %1M-3NT
 \setboolean{raspl}{true} %Splinter
-\newcommand{\majraisetext}{Fit J/S (Limit-ish)} %Text line for Bergen, fitjumps, etc
+\newcommand{\majraisetext}{mini-spl, Fit J/S in comp.~\boldtext{[\ref{itm:jshift}]}} %Text line for Bergen, fitjumps, etc
 \setboolean{dru2c}{true} % 2 clubs Drury?
 %\setboolean{dru2d}{true} % 2 diamonds Drury?
 %\setboolean{drcmp}{true}
@@ -293,7 +293,7 @@
 \newcommand{\twosresponse}{[\ref{itm:2xdoubled}]}
 
 %Bottom of card
-\newcommand{\jshifttext}{Fit (Limit-ish, 9+ in two suits)~\boldtext{[\ref{itm:fjs}]}} % jump shift responses
+\newcommand{\jshifttext}{mini-spl (LR/huge), Fit (Limit-ish, 9+ in two suits) in comp~\boldtext{[\ref{itm:jshift}]}} % jump shift responses
 \newcommand{\vsstrongart}{Mathé/1m} % "vs str/VS openings" - MDF to fix
 %\setboolean{nmf1w}{true} %1-way new minor
 %\setboolean{nmf2w}{true} %2-way new minor
@@ -616,7 +616,14 @@
                 \item When dealing with a forcing ``X or Y'' interference, we may choose to bid directly or allow you to clarify and Lebensohl over that.
             \end{itemize}
         \end{enumerate}
-        \item \label{itm:fjs}We play Fit Jump Shifts (9+ cards in bid suit and partner's, about limitish values) even by unpassed hand without competition.
+        \item \label{itm:jshift}Jump Shifts:
+        \begin{itemize}
+            \item We play mini- and maxi-splinters.
+                  Single Jump Shifts are 4-card, approximately Limit Raise (8--11ish) values.
+                  Double Jump Shifts are regular splinters, 12--15ish.
+                  Bigger hands yet can ``mini-spliter'' and continue.
+            \item In competition, including double, we play Fit Jump Shifts (9+ cards in bid suit and partner's, limitish values).
+        \end{itemize}
         \item \label{itm:michaels}In situations where we show two known or one known and one unknown suit, 2 NT is strong and asking, and cheapest unknown suit is pass/correct.
             This applies to:
             \begin{itemize}[nosep]
