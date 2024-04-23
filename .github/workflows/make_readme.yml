@@ -18,10 +18,11 @@ jobs:
       run: |
         python utils/make_readme.py
     - name: Check for changes
+      if: ${{ ! git diff --quiet }}
       run: |
-        ! git diff --quiet
+        echo "No changes, exiting"
+        exit 0
     - name: Commit new Readme
-      if: ${{ success() }}
       run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
