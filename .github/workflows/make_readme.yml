@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.11"]
@@ -19,6 +19,13 @@ jobs:
         utils/make_readme.py -o No
     - name: Commit new Readme
       run: |
-        git add README.md
-        git commit -m "updating README.md" || echo "No changes to commit"
-        git push origin || echo "No changes to commit"
+        if git diff --exit-code ; then
+          echo "No changes to commit."
+          exit 0
+        else
+          git config user.name github-actions
+          git config user.emal github-actions@github.com
+          git add README.md
+          git commit -m "updating README.md"
+          git push origin
+        fi
