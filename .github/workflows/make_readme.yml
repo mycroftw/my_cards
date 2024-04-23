@@ -18,7 +18,11 @@ jobs:
       run: |
         python utils/make_readme.py
     - name: Check for changes
-      if: ${{ ! git diff --quiet }}
+      run: |
+        ! git diff --quiet
+      continue-on-error: true
+    - name: If no changes, exit gracefully
+      if: ${{ success() }}
       run: |
         echo "No changes, exiting"
         exit 0
