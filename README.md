@@ -8,6 +8,7 @@ Made with [mycroftw/conv-cards](https://github.com/mycroftw/conv-cards) template
 - [EK-Lois](out/EK-Lois.pdf): Ellen with Lois.  2/1 Calgary style.
 - [Ellen-EHAA](out/Ellen-EHAA.pdf): When we're being weird, or when the opponents complain our normal system is "just played to confuse". Very aggressive preempts, very sound constructive openers, more natural than your system.
 - [Janet](out/Janet.pdf): JanetG 2/1, Toronto style.
+- [JimmySMP](out/JimmySMP.pdf): Precision based on DJNeill's Simple Modern Precision.
 - [Marcia](out/Marcia.pdf): Marcia card
 - [MF-Antara](out/MF-Antara.pdf): Pretty standard Calgary 2/1.  Multi-Landy vs NT, Bergen Raises, X-Cross Constructive.
 - [MF-Charles](out/MF-Charles.pdf): Charles C. 2/1.
