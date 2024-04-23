@@ -7,6 +7,7 @@ Made with [mycroftw/conv-cards](https://github.com/mycroftw/conv-cards) template
 - [CarolC](out/CarolC.pdf): Michael and Ellen's card with Carol.
 - [Ellen-EHAA](out/Ellen-EHAA.pdf): When we're being weird, or when the opponents complain our normal system is "just played to confuse. Very aggressive preempts, very sound constructive openers, more natural than your system.
 - [Janet](out/Janet.pdf): JanetG 2/1, Toronto style.
+- [JimmySMP](out/JimmySMP.pdf): Precision based on DJNeill's Simple Modern Precision.
 - [Marcia](out/Marcia.pdf): Marcia card
 - [MF-EK-KS](out/MF-EK-KS.pdf): Our "normal" system.  K/S (2/1, weak NT) with Keri, Power Doubles and other weirdness.
 - [MF-JR](out/MF-JR.pdf): Pretty standard Lakeside 2/1.
