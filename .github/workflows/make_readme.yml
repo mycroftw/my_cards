@@ -19,7 +19,7 @@ jobs:
     - name: Making Readme
       run: |
         python utils/make_readme.py
-    - uses: stefanweifel/git-auto-commit-action@v5
+    - uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Update Readme
         file_pattern: 'README.md'
