@@ -17,15 +17,10 @@ jobs:
     - name: Making Readme
       run: |
         python utils/make_readme.py
-    - name: Check for changes
-      run: |
-        ! git diff --quiet
-      continue-on-error: true
     - name: Commit new Readme
-      if: ${{ success() }}
       run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add README.md
-          git commit -m "updating README.md"
-          git push origin
+          git commit -m "updating README.md" || exit 0
+          git push origin || exit 0
