@@ -16,7 +16,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Making Readme
       run: |
-        utils/make_readme.py
+        python utils/make_readme.py -o No
     - name: Check for changes
       run: |
         ! git diff --quiet
