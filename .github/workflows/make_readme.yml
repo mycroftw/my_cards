@@ -5,6 +5,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     strategy:
       matrix:
         python-version: ["3.11"]
@@ -17,10 +19,8 @@ jobs:
     - name: Making Readme
       run: |
         python utils/make_readme.py
-    - name: Commit new Readme
-      run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add README.md
-          git commit -m "updating README.md" || exit 0
-          git push origin || exit 0
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Update Readme
+        file_pattern: 'README.md'
+        
