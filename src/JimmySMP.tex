@@ -13,6 +13,7 @@
 % the card is 8'' wide, so the margins are very narrow to fit on letter size paper:
 \usepackage{acbl2022cc}
 \usepackage[left=0mm,right=5mm,top=20mm]{geometry}
+\usepackage{enumitem}
 \begin{document}
 
 % There is a boolean to turn on or off every checkbox on the card.
@@ -70,12 +71,12 @@
 
 % And now the card itself. Right side first, top to bottom, then left side.
 % README: [Precision based on DJNeill's Simple Modern Precision.]
-\newcommand{\names}{\hspace{-2.5mm}Jimmy Reynolds -- Michael Farebrother}
-\newcommand{\playernumber}{\hspace{0.5mm}O375243/Q550794}
+\newcommand{\names}{\hspace{-3mm}Jimmy Reynolds -- Michael Farebrother}
+\newcommand{\playernumber}{\hspace{1.5mm}O375243/Q550794}
 
 % General approach:
 \newcommand{\generalapproach}{Precision}
-\newcommand{\minHCPopen}{10(9nv,M)}
+\newcommand{\minHCPopen}{10(9 nv,M)}
 \newcommand{\minHCPresp}{A or 6}
 \setboolean{fo1c}{true} % Forcing openings...
 %\setboolean{fo2c}{true}
@@ -83,8 +84,8 @@
 \setboolean{1nts}{true} % 1NT strength
 %\setboolean{1ntw}{true}
 %\setboolean{1ntv}{true}
-\newcommand{\bidspreptop}{1\,\bc \ 16+Unbal, 17+BAL} % Bids that Require Preparation
-\newcommand{\bidsprepbottom}{NV: 1\,\rh, \bs\ "9s that looks like 10s"} % Bids that Require Prep line 2
+\newcommand{\bidspreptop}{1\,\bc \ 16+ Unbal, 17+ BAL} % Bids that Require Preparation
+\newcommand{\bidsprepbottom}{1\,\rh, \bs\ NV: "9s that looks like 10s", V: "10s that look like 11s"} % Bids that Require Prep line 2
 
 % 1 Club
 %\setboolean{club5}{true} % 1C length
@@ -95,16 +96,16 @@
 %\setboolean{cl1nf}{true}
 %\setboolean{cl0nf}{true}
 \setboolean{clcon}{true}
-\newcommand{\cldescribe}{16+ unbal, 17+ bal} % blank space under 1C
-\newcommand{\clresponses}{1\,\rd: neg, 1\,\rh: min GF, 1\,\bs+: 12+} % Resp: line under 1C
+\newcommand{\cldescribe}{any 16+ unbal, 17+ bal} % blank space under 1C
+\newcommand{\clresponses}{\redreg{1\,\rh: min GF, 1\,\bs+: 12+ by UPH} [\ref{itm:1c_resp}]} % Resp: line under 1C
 %\setboolean{ctxfr}{true} % transfer responses to 1C
 
-\newcommand{\clrespdi}{0-7 any} % text after "1D response"
+\newcommand{\clrespdi}{\redreg{0--7 any} [\ref{itm:1c1d_rebid}]} % text after "1D response"
 %\setboolean{bypas}{true}
 \newcommand{\minonenlowtext}{12} % 1C-1NT range
 \newcommand{\minonenhightext}{+}
 \newcommand{\mintwonlowtext}{12+} % 1C-2NT range
-\newcommand{\mintwonhightext}{short}
+\newcommand{\mintwonhightext}{\redreg{4441}}
 
 %\setboolean{clsrn}{true} % Single raise - NF
 %\setboolean{clsri}{true} %              - Inv+
@@ -126,16 +127,16 @@
 %\setboolean{di0nf}{true}
 %\setboolean{dicon}{true}
 \newcommand{\didescribe}{11--13 BAL, 11--15 unbal, (332)5 possible} % blank space under 1D. e.g ''4 unless 4-4-3-2''
-\newcommand{\diresponses}{2\,\rh: 5\,\bs + 4\,\rh\,8--10, 2\,\bs: LR, 3\,\bc: GF Raise}
+\newcommand{\diresponses}{\redreg{2\,M: 5\,\bs + 4\,\rh\. \rh: 8--10,\,\bs: LR; 3\bc\,both minors}}
 %\setboolean{dascl}{true} % 1D responses like 1C
 
-\newcommand{\minonedionenlowtext}{8} % 1D-1NT range
-\newcommand{\minonedionenhightext}{10}
-\newcommand{\minoneditwonlowtext}{11} % 1D-2NT range
-\newcommand{\minoneditwonhightext}{12}
+\newcommand{\minonedionenlowtext}{7} % 1D-1NT range
+\newcommand{\minonedionenhightext}{11}
+\newcommand{\minoneditwonlowtext}{12} % 1D-2NT range
+\newcommand{\minoneditwonhightext}{13}
 
-\setboolean{disrn}{true} % Single raise - NF
-%\setboolean{disri}{true} %              - Inv+
+%\setboolean{disrn}{true} % Single raise - NF
+\setboolean{disri}{true} %              - Inv+
 %\setboolean{disrf}{true} %              - GF
 \setboolean{dijrw}{true} % jump raise - Weak
 %\setboolean{dijrm}{true} %            - Mixed
@@ -152,7 +153,7 @@
 %\setboolean{ntfor}{true} % 1NT forcing
 \setboolean{ntsem}{true} % 1NT semiforcing
 %\setboolean{ntbps}{true} % 1H-1NT bypass 4+S
-\newcommand{\majothertexttop}{\textcolor{black}{10+-15 Vul, 9+-15 NV}} % Other major methods: HSGT, Mathe asking bid, etc
+\newcommand{\majothertexttop}{\textcolor{black}{10+\,--15 Vul, 9+\,--15 NV}} % Other major methods: HSGT, Mathe asking bid, etc
 \newcommand{\majothertextbottom}{} % Other major methods line two
 
 \setboolean{ra2nt}{true} % Jacoby
@@ -179,7 +180,7 @@
 %\setboolean{ntasr}{true} % Same responses for alt NT range?
 % This next line is "differences between ranges" if a second range defined,
 % or a space for "style" if only one range.
-\newcommand{\altntresponse}{}
+\newcommand{\altntresponse}{5M332, 22(45), 444-A/K common}
 
 % 1NT: First column
 \setboolean{nt5cm}{true}
@@ -201,10 +202,10 @@
 \newcommand{\ntnttext}{diamonds} % Other meaning for 1NT-2NT
 
 % 1NT: Second column
-\newcommand{\ntcjumptext}{Puppet Stayman} % 1NT-3C
-\newcommand{\ntdjumptext}{5--5 minors GF}
-\newcommand{\nthjumptext}{1=3=(54)}
-\newcommand{\ntsjumptext}{3=1=(54)} % 1NT-3S
+\newcommand{\ntcjumptext}{\redreg{Puppet Stayman}} % 1NT-3C
+\newcommand{\ntdjumptext}{\redreg{5--5 minors GF}}
+\newcommand{\nthjumptext}{\redreg{1=3=(54)}}
+\newcommand{\ntsjumptext}{\redreg{3=1=(54)}} % 1NT-3S
 \newcommand{\ntothertexttop}{} % Other conventions over 1NT
 \newcommand{\ntothertextbottom}{} % Second "Other Conventions"
 
@@ -252,7 +253,7 @@
 %\setboolean{steps}{true} % step/control responses?
 \newcommand{\twoclstepstext}{}
 %\setboolean{neg2h}{true}
-\newcommand{\twoclresponse}{2\,\rd\ INV+ inq, 2 M NFConst} % Other text on right side of 2C divider
+\newcommand{\twoclresponse}{2\,\rd\ INV+ inq, 2 M NFC} % Other text on right side of 2C divider
 
 % 2 Diamonds
 \newcommand{\twodlowtext}{11} % 2D point range
@@ -263,7 +264,7 @@
 %\setboolean{in2di}{true}
 %\setboolean{st2di}{true}
 \setboolean{co2di}{true} % 2D conventional
-\newcommand{\twodntresp}{shape inquiry}
+\newcommand{\twodntresp}{\redreg{\bc\,min, \rd: 4=4 M, M: 3-cd}}
 \newcommand{\twodresponse}{}
 
 % 2 Hearts
@@ -291,14 +292,14 @@
 \newcommand{\twosresponse}{}
 
 % Bottom of card
-\newcommand{\jshifttext}{1\,\rd\: see above; 1 M Lim Spl; Fit Jumps/PH or comp} % jump shift responses
+\newcommand{\jshifttext}{\redreg{1\,\rd\: see above; 1 M Lim Spl, Fit Jumps by PH or in comp}} % jump shift responses
 \newcommand{\vsstrongart}{} % vs str/VS openings
 \setboolean{nmf1w}{true} % 1-way new minor
 %\setboolean{nmf2w}{true} % 2-way new minor
 %\setboolean{xyz2w}{true} % XYZ
 %\setboolean{fsfrd}{true} % Fourth suit 1 round
 \setboolean{fsfgf}{true} % game
-\newcommand{\footnotestop}{vs. comp/1\,\bc\: P: 0-4 or trap, X: 4-7, bid: GF} % 2 lines for additional conventions at bottom
+\newcommand{\footnotestop}{vs. comp/1\,\bc\: P: 0--4 or trap, X: 4--7, bid: GF} % 2 lines for additional conventions at bottom
 \newcommand{\footnotesbottom}{}
 
 % Back of card (left to right, top to bottom)
@@ -314,7 +315,7 @@
 \newcommand{\suppxthru}{2x, -1NT}
 \setboolean{supxx}{true} % Support redouble
 \newcommand{\toxstyletext}{}
-\newcommand{\doubleothertext}{2lvl freq. T/O, 3 lvl freq. DSI} % Other special doubles
+\newcommand{\doubleothertext}{\textcolor{black}{2 lvl freq. T/O, 3 lvl freq. DSI}} % Other special doubles
 
 % NT overcalls
 \newcommand{\directlowtext}{15\,+} % range
@@ -354,11 +355,11 @@
 % Defense vs. NT
 \newcommand{\firstcondition}{All/All} % ''vs.'' line, first half
 \newcommand{\firstvsdbl}{\bc\ or \rd\ or \rh\ + \bs}   % 1NT-X
-\newcommand{\firstvstwocl}{\bc\ + M} % 1NT-2C
-\newcommand{\firstvstwodi}{\rd\ + M} % 1NT-2D
-\newcommand{\firstvstwohe}{\rh} % 1NT-2H
-\newcommand{\firstvstwosp}{\bs} % 1NT-2S
-\newcommand{\firstvstwont}{\bc\,+\,\rd} % 1NT-2NT
+\newcommand{\firstvstwocl}{\hspace{2mm}\bc\ + M} % 1NT-2C
+\newcommand{\firstvstwodi}{\hspace{2mm}\rd\ + M} % 1NT-2D
+\newcommand{\firstvstwohe}{\hspace{5mm}\rh} % 1NT-2H
+\newcommand{\firstvstwosp}{\hspace{5mm}\bs} % 1NT-2S
+\newcommand{\firstvstwont}{\hspace{2.5mm}\bc\,+\,\rd} % 1NT-2NT
 \newcommand{\secondcondition}{} % the same six lines, right half
 \newcommand{\secondvsdbl}{}
 \newcommand{\secondvstwocl}{}
@@ -406,7 +407,7 @@
 
 % Opening preempts
 \newcommand{\threelevelstyletop}{}
-\newcommand{\threelevelstylebottom}{Aggressive, esp. majors}
+\newcommand{\threelevelstylebottom}{\hspace{6mm}Aggressive, esp. majors}
 \newcommand{\threelevelresp}{}
 \newcommand{\fourlevelstyle}{4m broken, 4M aggr.}
 \newcommand{\fourlevelresp}{}
@@ -414,7 +415,7 @@
 \newcommand{\fourlevelother}{}
 
 % vs. opening preempts
-\newcommand{\optwontoc}{15-18} % (2x)-2NT
+\newcommand{\optwontoc}{15--18} % (2x)-2NT
 \setboolean{opdto}{true}
 \newcommand{\opdtothru}{4\,\rh} % Takeout through...
 %\setboolean{oppen}{true}
@@ -433,7 +434,7 @@
 %\setboolean{b0314}{true} % RKC
 \setboolean{b1430}{true} % 1430
 \newcommand{\blackwoodtext}{0123 first round}
-\newcommand{\controlcuetext}{1st/2nd up the line}
+\newcommand{\controlcuetext}{1\textsuperscript{st}/2\textsuperscript{nd} up the line}
 \newcommand{\slaminterftext}{DOP1/DEPO $\rightarrow$ 5 trump}
 \newcommand{\slamothertext}{} % slam convention info
 
@@ -556,4 +557,57 @@
 %
 } % end of \additionaltikz
 \drawconventioncard
+
+\newpage
+\centerline{\large\textbf{Notes for Michael Farebrother --- Jimmy Reynolds: Precision \today{}}}
+\setdescription{noitemsep}
+\begin{footnotesize}
+    \begin{enumerate}
+        \item \label{itm:1c_resp}Responses to 1\,\bc:
+        \begin{description}
+            \item [1\,\rd] Artificial Negative (but Forcing), 0--7 almost any hand.
+            \item [1\,\rh] Artificial GF, 8--11 almost any hand.
+            \item [1\,\bs] 12+, 5+ \bs.
+            \item [1\,NT] 12+ Balanced.
+                Stayman, but no transfers.
+            \item [2\,\bc-2\,\rh] 12+, 5+suit
+            \item [2\,\bs] 12+, any 4441.
+                2NT asks, then 4\,\bc/\rd/NT\@.
+            \item[Passed hand] 1\,\rd still negative, others 8--10 5+; 2\,\bs 8--10 any 4441.
+        \end{description}
+        \item \label{itm:1c1d_rebid} After 1\,\bc--1\,\rd:
+        \begin{description}
+            \item [1\,\rh] 4+ \rh, 16--~21, may have longer minor.
+            Forcing.
+            \item [1\,\bs] 4+ \bs, 16--~21, may have longer minor.
+            If only 4 \bs, will not have 4 \rh.
+            Forcing.
+            \item [1\,NT] 17--19 Balanced.
+            Responses as after 1\,NT opener.
+            \item [2\,m] 16--~21, 5+\,m, \textbf{no 4-card major}.
+            \item [2\,M, 3\,m] Natural, Game Forcing.
+            Expect at least standard 2\,\bc\ strength.
+            \item [2\,NT] 22--23 Balanced.
+            \item [3\,M] Natural, NF, based on tricks rather than high card strength.
+            \item [Game bids] To play.
+        \end{description}
+        \item \label{itm:1c1d1M_resp} After 1\,\bc--1\,\rd; 1M:
+        \begin{description}
+            \item [1\,\bs] 0--7, 4+ \bs; if 6--7, not 3\,\rh.
+            Forcing,
+            \item [1\,NT] 0--5, if over 1\,\rh, not 4\,\bs.
+            Not Forcing.
+            \item [2\,\bc] Artificial, Forcing, 6--7, 0--2 card support, no Other Major.
+            \item [2\,\rd] Artificial, Forcing, 6--7, exactly 3 card support.
+            \item [2\,\rh] Over 1\,\bs, 5\,\rh, 0--2\,\bs.
+            \item [2\,M] 0--5, 4--5 card support.
+            \item [2\,NT] Artificial, Forcing, 6--7, 4+ card support, shortness.
+            3\,\bc: Where (GF)?
+            3\,M: Clubs!
+            \item[3\,M] 6--7, 4+ card support, Invitational.
+            \item[Jump Shift] Natural, NF, 6--7, 6+ card suit.
+            \item[Double Jump Shift] Artificial, Forcing, super-splinter, 5+ card support, 6--7!
+        \end{description}
+    \end{enumerate}
+\end{footnotesize}
 \end{document}
