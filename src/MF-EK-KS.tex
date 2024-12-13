@@ -155,12 +155,12 @@
 %\setboolean{ntsem}{true} %1NT semiforcing
 %\setboolean{ntbps}{true} %1H-1NT bypass 4+S
 \newcommand{\majothertexttop}{Kokish GT} %Other major methods: HSGT, Mathe asking bid, etc
-\newcommand{\majothertextbottom}{\regtext{2/1 GF unless Suit Rebid}} %Other major methods line two
+\newcommand{\majothertextbottom}{\regtext{2/1 GF unless Suit Rebid}, unusual responses to J2N~\boldtext{[\ref{itm:jacoby2nt}]}} %Other major methods line two
 
 \setboolean{ra2nt}{true} %Jacoby
 \setboolean{ra3nt}{true} %1M-3NT
 \setboolean{raspl}{true} %Splinter
-\newcommand{\majraisetext}{mini-spl, Fit J/S in comp.~\boldtext{[\ref{itm:jshift}]}} %Text line for Bergen, fitjumps, etc
+\newcommand{\majraisetext}{Fit J/S, ~LR strength~\boldtext{[\ref{itm:jshift}]}} %Text line for Bergen, fitjumps, etc
 \setboolean{dru2c}{true} % 2 clubs Drury?
 %\setboolean{dru2d}{true} % 2 diamonds Drury?
 %\setboolean{drcmp}{true}
@@ -293,7 +293,7 @@
 \newcommand{\twosresponse}{[\ref{itm:2xdoubled}]}
 
 %Bottom of card
-\newcommand{\jshifttext}{mini-spl (LR/huge), Fit (Limit-ish, 9+ in two suits) in comp~\boldtext{[\ref{itm:jshift}]}} % jump shift responses
+\newcommand{\jshifttext}{Fit (Limit-ish, 9+ in two suits)~\boldtext{[\ref{itm:jshift}]}} % jump shift responses
 \newcommand{\vsstrongart}{Mathé/1m} % "vs str/VS openings" - MDF to fix
 %\setboolean{nmf1w}{true} %1-way new minor
 %\setboolean{nmf2w}{true} %2-way new minor
@@ -558,10 +558,9 @@
 %
 }%end of \additionaltikz
 \drawconventioncard
-
-\twocolumn[\centerline{\large\textbf{Notes for Michael Farebrother --- Ellen Kuiper: K/S system: \today{}}}]
-
-\begin{scriptsize}
+\newpage
+\centerline{\large\textbf{Notes for Michael Farebrother --- Ellen Kuiper: K/S system: \today{}}}
+\begin{footnotesize}
     \begin{enumerate}
         \item \label{itm:1nt}1 NT is 12--14 all seats, all vulnerabilities.
          We upgrade special 11s (Michael more than Ellen).
@@ -569,7 +568,7 @@
             \item \label{itm:1nt2c}We do \textbf{not} play Stayman over 1 NT.  2\,\bc\ is Keri: a puppet to 2\,\rd.
             This is forced; there is no other systemic response to 2\,\bc.
             Responder's rebids:
-            \begin{description}
+            \begin{description}[nosep]
                 \item [Pass] Weak with Diamonds
                 \item [2\,\rh] INV with 4 \textbf{or 5} hearts (but see 1 NT--2\,\rd below)
                 \item [2\,\bs] INV with 4 \textbf{or 5} spades
@@ -583,7 +582,7 @@
             \item We do \textbf{not} play Gerber.
             Over 1 NT and 2 NT, 4 m transfers to corresponding major, 4 M is to play.
             \item \label{itm:1ntother}Other special responses over 1NT:
-            \begin{description}
+            \begin{description}[nosep]
                 \item [1 NT--2\,\rd] hearts.
                       Very rarely 4: if responder rebids 2\,\bs, they are INV with both majors:
                       5\,\bs--5\,\rh, 5\,\bs--4\,\rh\ or 4\,\bs--4\,\rh, but not 4\,\bs--5\,\rh.
@@ -596,16 +595,16 @@
                  \textbf{Not} quantitative.
             \end{description}
             \item \label{itm:1ntx}Over interference:
-            \begin{itemize}
+            \begin{itemize}[nosep]
                 \item Over double (all seats, all meanings), our runout is ``2\,\bc\ Scramble'':
-                \begin{itemize}
+                \begin{itemize}[nosep]
                     \item Keri and Transfers are off.
                     Almost all calls, including Pass and XX, are natural and to play.
                     XX sets a force through 2\,\rd.
                     \item The exception is 2\,\bc, which is ``Natural'', but 1+.
                      This call is to play undoubled.
                       If doubled:
-                    \begin{itemize}
+                    \begin{itemize}[nosep]
                         \item Opener will pass with 3+ clubs, or bid her lowest 4-card suit.
                         \item Responder will pass with 4+ clubs, or bid her lowest 4-card suit.
                         \item Runs are also to play unless doubled, or if a 7 card fit is found.
@@ -617,14 +616,19 @@
                 \item When dealing with a forcing ``X or Y'' interference, we may choose to bid directly or allow you to clarify and Lebensohl over that.
             \end{itemize}
         \end{enumerate}
-        \item \label{itm:jshift}Jump Shifts:
-        \begin{itemize}
-            \item We play mini- and maxi-splinters.
-                  Single Jump Shifts are 4-card, approximately Limit Raise (8--11ish) values.
-                  Double Jump Shifts are regular splinters, 12--15ish.
-                  Bigger hands yet can ``mini-spliter'' and continue.
-            \item In competition, including double, we play Fit Jump Shifts (9+ cards in bid suit and partner's, limitish values).
-        \end{itemize}
+        \item \label{itm:jshift}We play Fit Jump Shifts (9+ cards in partner's suit and the bid suit of quality, limit raise-ish values).
+        \item \label{itm:jacoby2nt}
+        \begin{description}[nosep]
+            \item Responses to 1M-2NT:
+            \item [3\,\bc] All minimums.
+                  3\,\rd asks, shortness shown as below; otherwise cue at 4 level.
+            \item[3\,\rd] Extras, no shortness.
+            \item[3\,\rh] Extras, club shortness (related minor)
+            \item[3\,\bs] Extras, diamond shortness
+            \item[3\,NT] Extras, other major shortness
+            \item[4\,x] Second suit of trick-taking power
+            \item[4\,M] Dead minimum, almost certainly 5M332, at most 1 control.
+        \end{description}
         \item \label{itm:michaels}In situations where we show two known or one known and one unknown suit, 2 NT is strong and asking, and cheapest unknown suit is pass/correct.
             This applies to:
             \begin{itemize}[nosep]
@@ -635,7 +639,7 @@
         \item We play Power Doubles and 1NT Overcall for takeout:
         \begin{enumerate}[label*=\arabic*,nosep]
             \item \label{itm:pd}(1 suit)--X shows ``any'' 15+, but because we will pass for penalty with much weaker trumps than ``normal'', with a singleton, it's about 17, and with a void, about 19.
-            \begin{itemize}
+            \begin{itemize}[nosep]
                 \item It frequently shows a strong NT, with or without stoppers.
                 \item Next suit up (exc.\ 1\,\bs--X) is an artificial negative, 0--bad 4 any.
                 \item Non-jump bids are natural and about good 4--bad 8.
@@ -644,7 +648,7 @@
                 \item Jump bids are good suits.
             \end{itemize}
             \item \label{itm:1ntoc}(1 suit)--1 NT is takeout, usually 8--14 HCP, guaranteeing 3+cards in all unbid suits.
-            \begin{itemize}
+            \begin{itemize}[nosep]
                 \item With perfect shape, especially NV in 2nd, could be on 6 (Open chart only).
                 \item With a singleton (16) or void (18) in bid suit, we may overcall 1NT with more than 14 HCP\@.
                 \item We are fairly aggressive with this call, and can do it with 5 card suits; but with 4333, we will be on the top of the range.
@@ -688,5 +692,5 @@
             \item Against NT, we play Reverse Smith Echo (if attitude is not known to opening leader's suit, signal to trick 2 is (upside down) attitude in leader's suit, not a signal about declarer's suit).
         \end{itemize}
     \end{enumerate}
-\end{scriptsize}
+\end{footnotesize}
 \end{document}
