@@ -85,7 +85,7 @@
 %\setboolean{1ntw}{true}
 %\setboolean{1ntv}{true}
 \newcommand{\bidspreptop}{1\,\bc \ 16+ Unbal, 17+ BAL} % Bids that Require Preparation
-\newcommand{\bidsprepbottom}{1\,\rh, \bs\ NV: "9s that looks like 10s", V: "10s that look like 11s"} % Bids that Require Prep line 2
+\newcommand{\bidsprepbottom}{1\,\rh, \bs\ NV: ``9s that looks like 10s'', V: ``10s that look like 11s''} % Bids that Require Prep line 2
 
 % 1 Club
 %\setboolean{club5}{true} % 1C length
@@ -97,10 +97,10 @@
 %\setboolean{cl0nf}{true}
 \setboolean{clcon}{true}
 \newcommand{\cldescribe}{any 16+ unbal, 17+ bal} % blank space under 1C
-\newcommand{\clresponses}{\redreg{1\,\rh: min GF, 1\,\bs+: 12+ by UPH} [\ref{itm:1c_resp}]} % Resp: line under 1C
+\newcommand{\clresponses}{\redreg{1\,\rh: min GF, 1\,\bs+: 12+ by UPH}~[\ref{itm:1c_resp}]} % Resp: line under 1C
 %\setboolean{ctxfr}{true} % transfer responses to 1C
 
-\newcommand{\clrespdi}{\redreg{0--7 any} [\ref{itm:1c1d_rebid}]} % text after "1D response"
+\newcommand{\clrespdi}{\redreg{0--7 any}~[\ref{itm:1c1d_rebid}]} % text after "1D response"
 %\setboolean{bypas}{true}
 \newcommand{\minonenlowtext}{12} % 1C-1NT range
 \newcommand{\minonenhightext}{+}
@@ -126,8 +126,8 @@
 %\setboolean{di1nf}{true}
 %\setboolean{di0nf}{true}
 %\setboolean{dicon}{true}
-\newcommand{\didescribe}{11--13 BAL, 11--15 unbal, (332)5 possible} % blank space under 1D. e.g ''4 unless 4-4-3-2''
-\newcommand{\diresponses}{\redreg{2\,M: 5\,\bs + 4\,\rh\. \rh: 8--10,\,\bs: LR; 3\bc\,both minors}}
+\newcommand{\didescribe}{11--13 BAL, 11--15 unbal, (332)\bc5 possible} % blank space under 1D. e.g ''4 unless 4-4-3-2''
+\newcommand{\diresponses}{\redreg{2\,M: 5\,\bs/4\,\rh\. \rh: 8--10,\,\bs: LR; 3\bc\,both m}~[\ref{itm:1d_resp}]}
 %\setboolean{dascl}{true} % 1D responses like 1C
 
 \newcommand{\minonedionenlowtext}{7} % 1D-1NT range
@@ -429,7 +429,7 @@
 \setboolean{gednt}{true} % Gerber
 \setboolean{geseq}{true} % NT Seq G
 %\setboolean{genon}{true} % non-seq G
-\newcommand{\gerbertext}{NT-seq or last NT only}
+\newcommand{\gerbertext}{NT-seq/last NT only}
 %\setboolean{black}{true} % Blackwood
 %\setboolean{b0314}{true} % RKC
 \setboolean{b1430}{true} % 1430
@@ -566,6 +566,7 @@
         \item \label{itm:1c_resp}Responses to 1\,\bc:
         \begin{description}
             \item [1\,\rd] Artificial Negative (but Forcing), 0--7 almost any hand.
+                Responses:~[\ref{itm:1c1d_rebid}].
             \item [1\,\rh] Artificial GF, 8--11 almost any hand.
             \item [1\,\bs] 12+, 5+ \bs.
             \item [1\,NT] 12+ Balanced.
@@ -575,39 +576,101 @@
                 2NT asks, then 4\,\bc/\rd/NT\@.
             \item[Passed hand] 1\,\rd still negative, others 8--10 5+; 2\,\bs 8--10 any 4441.
         \end{description}
-        \item \label{itm:1c1d_rebid} After 1\,\bc--1\,\rd:
-        \begin{description}
-            \item [1\,\rh] 4+ \rh, 16--~21, may have longer minor.
-            Forcing.
-            \item [1\,\bs] 4+ \bs, 16--~21, may have longer minor.
-            If only 4 \bs, will not have 4 \rh.
-            Forcing.
-            \item [1\,NT] 17--19 Balanced.
-            Responses as after 1\,NT opener.
-            \item [2\,m] 16--~21, 5+\,m, \textbf{no 4-card major}.
-            \item [2\,M, 3\,m] Natural, Game Forcing.
-            Expect at least standard 2\,\bc\ strength.
-            \item [2\,NT] 22--23 Balanced.
-            \item [3\,M] Natural, NF, based on tricks rather than high card strength.
-            \item [Game bids] To play.
-        \end{description}
-        \item \label{itm:1c1d1M_resp} After 1\,\bc--1\,\rd; 1M:
-        \begin{description}
-            \item [1\,\bs] 0--7, 4+ \bs; if 6--7, not 3\,\rh.
-            Forcing,
-            \item [1\,NT] 0--5, if over 1\,\rh, not 4\,\bs.
-            Not Forcing.
-            \item [2\,\bc] Artificial, Forcing, 6--7, 0--2 card support, no Other Major.
-            \item [2\,\rd] Artificial, Forcing, 6--7, exactly 3 card support.
-            \item [2\,\rh] Over 1\,\bs, 5\,\rh, 0--2\,\bs.
-            \item [2\,M] 0--5, 4--5 card support.
-            \item [2\,NT] Artificial, Forcing, 6--7, 4+ card support, shortness.
-            3\,\bc: Where (GF)?
-            3\,M: Clubs!
-            \item[3\,M] 6--7, 4+ card support, Invitational.
-            \item[Jump Shift] Natural, NF, 6--7, 6+ card suit.
-            \item[Double Jump Shift] Artificial, Forcing, super-splinter, 5+ card support, 6--7!
-        \end{description}
+        \begin{enumerate}[label*=\arabic*,nosep]
+            \item \label{itm:1c1d_rebid} After 1\,\bc--1\,\rd:
+            \begin{description}
+                \item [1\,\rh] 4+ \rh, 16--~21, may have longer minor.
+                    Forcing.
+                    Responses:~[\ref{itm:1c1d1M_resp}].
+                \item [1\,\bs] 4+ \bs, 16--~21, may have longer minor.
+                If only 4 \bs, will not have 4 \rh.
+                    Forcing.
+                    Responses:~[\ref{itm:1c1d1M_resp}].
+                \item [1\,NT] 17--19 Balanced.
+                    Responses as after 1\,NT opener.
+                \item [2\,m] 16--~21, 5+\,m, \textbf{no 4-card major}.
+                \item [2\,M, 3\,m] Natural, Game Forcing.
+                    Expect at least standard 2\,\bc\ strength.
+                \item [2\,NT] 22--23 Balanced.
+                \item [3\,M] Natural, NF, based on tricks rather than high card strength.
+                \item [Game bids] To play.
+            \end{description}
+            \item \label{itm:1c1d1M_resp} After 1\,\bc--1\,\rd; 1M:
+            \begin{description}
+                \item [1\,\bs] 0--7, 4+ \bs; if 6--7, not 3\,\rh.
+                    Forcing.
+                \item [1\,NT] 0--5, if over 1\,\rh, not 4\,\bs.
+                    Not Forcing.
+                \item [2\,\bc] Artificial, Forcing, 6--7, 0--2 card support, no Other Major.
+                    Responses:~[\ref{itm:1c1d1M2c_rebid}].
+                \item [2\,\rd] Artificial, Forcing, 6--7, exactly 3 card support.
+                    Responses:~[\ref{itm:1c1d1M2d_rebid}].
+                \item [2\,\rh/1\,\bs] 6--7, 5\,\rh, 0--2\,\bs.
+                \item [2\,M] 0--5, 4--5 card support.
+                \item [2\,NT] Artificial, Forcing, 6--7, 4+ card support, shortness.
+                    3\,\bc: Where (GF)?
+                    3\,M: Clubs!
+                \item[3\,M] 6--7, 4+ card support, Invitational.
+                \item[Jump Shift] Natural, NF, 6--7, 6+ card suit.
+                \item[Double Jump Shift] Artificial, Forcing, super-splinter, 5+ card support, 6--7!
+            \end{description}
+            \item \label{itm:1c1d1M2c_rebid} After 1\,\bc--1\,\rd; 1\,M--2\,\bc (6--7, 0--2 M):
+            \begin{description}
+                \item [2\,\rd] Artificial, min, asking for 2-card support or other major.
+                \item [2\,\rh/1\,\bs] 5+\,\bs, 4+\,\rh.
+                \item [2\,M] 6+ card suit.
+                \item [2\,NT] Artificial GF waiting bid.
+                \item [3\,m] 4\,M, 6 m, GF\@.
+            \end{description}
+            \item \label{itm:1c1d1M2d_rebid} After 1\,\bc--1\,\rd; 1\,M--2\,\rd (5--7, 3 M):
+            \begin{description}
+                \item [2\,\rh/1\,\bs] 5+\,\bs, 4+\,\rh.
+                \item [2\,M] Minimum, NF, probably 4 M\@.
+                \item [2\,oM] NAT, 4 cards.
+                \item [2\,NT] Artificial GF waiting bid.
+                \item [3\,m] 4\,M, 6 m, GF\@.
+                \item [3\,M] INV, 5+
+            \end{description}
+        \end{enumerate}
+        \item 1\,\rd: (10)11--13 balanced, 10--15 unbalanced, 2+\rd, up to 5 clubs.
+        \begin{enumerate}[label*=\arabic*,nosep]
+            \item \label{itm:1d_resp} Responses:
+            \begin{description}
+                \item [1\,M] 4+, frequently has longer minor.
+                \item [1\,NT] ~7--11, no 4cM, no interest in game opposite 11--13 balanced.
+                \item [2\,m] Natural, GF\@.
+                    Exception: 2m then 3m (INV, 6+) or 2\,\rd then 3\,\bc (INV, 5--4+ minors).
+                    Denies a 4 card Major unless GF 4M--6+m.
+                    Responses:~[\ref{itm:1d2m_rebid}]
+                \item [2\,M] Reverse Flannery, 5\,\bs--4+\,\rh.
+                    2\,\rh: constructive (7--11), 2\,\bs: Limit (12--13).
+                \item [2\,NT] INV opposite 11--13 balanced.
+                \item [3\,\bc] Both minors (usually 5--4), pass or correct.
+                \item [3\,\rd] 6+\,\rd, less than INV\@.
+            \end{description}
+            \item \label{itm:1d2m_rebid} Rebids after 1\,\rd--2m:
+            \begin{description}
+                \item [2\,\rh] 11--13 Balanced.
+                    Responses:~[\ref{itm:1d2m2h_resp}]
+                \item [2\,\bs] unspecified splinter raise.
+                    2\,NT asks, responses high/middle/low.
+                \item [2\,NT] Over 2\,\bc, shortness in clubs (usually 4441).
+                    Over 2\,\rd, 6+\,\rd.
+            \end{description}
+            \item \label{itm:1d2m2h_resp} After 1\,\rd-2\,m; 2\,\rh\ (11-13 balanced):
+            \begin{description}
+                \item [2\,\bs] Artificial puppet to 2NT\.
+                    Then:
+                \begin{description}
+                    \item [3\,m] natural, slam interest.
+                    \item [3\,M] 4\,M--6+\,m, game forcing.
+                    \item[3\,NT] ``Want you to play 3NT''.
+                \end{description}
+                \item[2\,NT] GF\,
+                \item[3\,m] NF, INV, 6+.
+                \item[3\,\bc/2\,\rd] NF, at least 5--4 minors
+            \end{description}
+        \end{enumerate}
     \end{enumerate}
 \end{footnotesize}
 \end{document}
