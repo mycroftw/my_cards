@@ -8,6 +8,7 @@ Made with [mycroftw/conv-cards](https://github.com/mycroftw/conv-cards) template
 - [Ellen-EHAA](out/Ellen-EHAA.pdf): When we're being weird, or when the opponents complain our normal system is "just played to confuse". Very aggressive preempts, very sound constructive openers, more natural than your system.
 - [Janet](out/Janet.pdf): JanetG 2/1, Toronto style.
 - [Marcia](out/Marcia.pdf): Marcia card
+- [MF-Antara](out/MF-Antara.pdf): Pretty standard Calgary 2/1.  Multi-Landy vs NT, Bergen Raises, X-Cross Constructive.
 - [MF-EK-KS](out/MF-EK-KS.pdf): Our "normal" system.  K/S (2/1, weak NT) with Keri, Power Doubles and other weirdness.
 - [MF-EK-NB](out/MF-EK-NB.pdf): Our card with Nicola from Ajijic.  Pretty straight LCDBC 2/1, with Suction to make her happy.
 - [MF-EK-Wandler](out/MF-EK-Wandler.pdf): Card with the Wandlers.  Pretty simple 2/1.
