@@ -5,6 +5,7 @@ Made with [mycroftw/conv-cards](https://github.com/mycroftw/conv-cards) template
 ## List of cards
 
 - [CarolC](out/CarolC.pdf): Michael and Ellen's card with Carol.
+- [EK-Lois](out/EK-Lois.pdf): Ellen with Lois.  2/1 Calgary style.
 - [Ellen-EHAA](out/Ellen-EHAA.pdf): When we're being weird, or when the opponents complain our normal system is "just played to confuse". Very aggressive preempts, very sound constructive openers, more natural than your system.
 - [Janet](out/Janet.pdf): JanetG 2/1, Toronto style.
 - [Marcia](out/Marcia.pdf): Marcia card
