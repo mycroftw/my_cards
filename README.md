@@ -12,6 +12,7 @@ Made with [mycroftw/conv-cards](https://github.com/mycroftw/conv-cards) template
 - [MF-EK-NB](out/MF-EK-NB.pdf): Our card with Nicola from Ajijic.  Pretty straight LCDBC 2/1, with Suction to make her happy.
 - [MF-EK-Wandler](out/MF-EK-Wandler.pdf): Card with the Wandlers.  Pretty simple 2/1.
 - [MF-JR](out/MF-JR.pdf): Pretty standard Lakeside 2/1.
+- [MF-SteveL](out/MF-SteveL.pdf): Card with Steve Lawrence.  Calgary 2/1 again..
 - [MF-TomN](out/MF-TomN.pdf): Bernie-standard 2/1.
 
 ## License
