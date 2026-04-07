@@ -274,3 +274,7 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# pycharm and extension files
+/.idea/sonarlint/*
+/.idea/shelf/*
