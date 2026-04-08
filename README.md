@@ -12,7 +12,7 @@ Made with [mycroftw/conv-cards](https://github.com/mycroftw/conv-cards) template
 - [Marcia](out/Marcia.pdf): Marcia card
 - [MF-Antara](out/MF-Antara.pdf): Pretty standard Calgary 2/1.  Multi-Landy vs NT, Bergen Raises, X-Cross Constructive.
 - [MF-Charles](out/MF-Charles.pdf): Charles C. 2/1.
-- [MF-EK-Jones](out/MF-EK-Jones.pdf): Peter and Lloyda.  Pretty straight Alberta 2/1.
+- [MF-EK-Jones](out/MF-EK-Jones.pdf): PeterJ.  Pretty straight Alberta 2/1.
 - [MF-EK-KS](out/MF-EK-KS.pdf): Our "normal" system.  K/S (2/1, weak NT) with Keri, Power Doubles and other weirdness.
 - [MF-EK-NB](out/MF-EK-NB.pdf): Our card with Nicola from Ajijic.  Pretty straight LCDBC 2/1, with Suction to make her happy.
 - [MF-EK-Starr](out/MF-EK-Starr.pdf): Starr (and possibly Glen).  Another Alberta 2/1.  A bit sketchy, probably should be treated as draft.
