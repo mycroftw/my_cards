@@ -69,12 +69,13 @@
 %\renewcommand{\usertextsize}{\footnotesize}  % larger answer size
 %\renewcommand{\usertextsize}{\scriptsize}    % smaller answer size
 
+\label{sec:Names}
 % And now the card itself. Right side first, top to bottom, then left side.
 % README: [Precision based on DJNeill's Simple Modern Precision.]
 \newcommand{\names}{\hspace{-3mm}Jimmy Reynolds -- Michael Farebrother}
 \newcommand{\playernumber}{\hspace{1.5mm}O375243/Q550794}
 
-% General approach:
+\label{sec:General_Approach}
 \newcommand{\generalapproach}{Precision}
 \newcommand{\minHCPopen}{10}
 \newcommand{\minHCPresp}{A or 6}
@@ -87,7 +88,7 @@
 \newcommand{\bidspreptop}{1\,\bc: 16+ Unbal, 17+ BAL} % Bids that Require Preparation
 \newcommand{\bidsprepbottom}{\hspace{-3mm}1\,\rd: 2+\,\rd, 11-15 Unbal, 11-13 BAL.\hspace{3mm}1\,\rh, \bs: ``10s that look like 11''} % Bids that Require Prep line 2
 
-% 1 Club
+\label{sec:1C}
 %\setboolean{club5}{true} % 1C length
 %\setboolean{club4}{true}
 %\setboolean{club3}{true}
@@ -117,7 +118,7 @@
 %\setboolean{clocm}{true} %                - Mixed
 %\setboolean{cloci}{true} %                - Inv
 
-% 1 Diamond
+\label{sec:1D}
 %\setboolean{diam5}{true} % 1D length
 %\setboolean{diam4}{true}
 %\setboolean{diam3}{true}
@@ -145,7 +146,7 @@
 %\setboolean{diocm}{true} %                - Mixed
 %\setboolean{dioci}{true} %                - Inv
 
-% 1 Major
+\label{sec:1M}
 %\setboolean{h12l4}{true} % 4 cards in 1st/2nd seat
 \setboolean{h12l5}{true}
 %\setboolean{h34l4}{true} % 4 cards in 3rd/4th seat
@@ -171,7 +172,7 @@
 %\setboolean{ocdrm}{true}
 %\setboolean{ocdri}{true}
 
-% 1NT: Top
+\label{sec:1NT}
 \newcommand{\ntlowtext}{14} % NT range
 \newcommand{\nthightext}{16}
 \newcommand{\ntseatvul}{}
@@ -182,7 +183,7 @@
 % or a space for "style" if only one range.
 \newcommand{\altntresponse}{5M332, 22(45), 444-A/K common}
 
-% 1NT: First column
+\label{subsec:1NT_left}
 \setboolean{nt5cm}{true}
 \newcommand{\sysontext}{\hspace{-2mm}X, 2\,\bc} % Systems on after 1NT-(X), 2\c, etc...
 \setboolean{staym}{true}
@@ -201,7 +202,7 @@
 \setboolean{trf2n}{true}
 \newcommand{\ntnttext}{diamonds} % Other meaning for 1NT-2NT
 
-% 1NT: Second column
+\label{subsec:1NT_right}
 \newcommand{\ntcjumptext}{\redreg{Puppet Stayman}} % 1NT-3C
 \newcommand{\ntdjumptext}{\redreg{5--5 minors GF}}
 \newcommand{\nthjumptext}{\redreg{1=3=(54)}}
@@ -209,7 +210,7 @@
 \newcommand{\ntothertexttop}{} % Other conventions over 1NT
 \newcommand{\ntothertextbottom}{} % Second "Other Conventions"
 
-% 1NT: Bottom
+\label{subsec:1NT_bottom}
 \setboolean{smole}{true}
 %\setboolean{tex4c}{true}
 \setboolean{tex4d}{true}
@@ -221,7 +222,7 @@
 \setboolean{leben}{true}
 \newcommand{\ntlebentext}{slow shows} % Lebensohl style
 
-% 2NT
+\label{sec:2NT}
 \newcommand{\twonlowtext}{20}
 \newcommand{\twonhightext}{21}
 \setboolean{pup2n}{true}
@@ -233,13 +234,13 @@
 \setboolean{neg2n}{true}
 \newcommand{\twonothertext}{} % Other line in 2NT box
 
-% 3NT
+\label{sec:3NT}
 \newcommand{\threenlowtext}{} % 3NT range
 \newcommand{\threenhightext}{}
 \setboolean{gam3n}{true} % One suit?
 \newcommand{\threenonesuittext}{Solid suit, 0 outside controls} % One suit description 3NT box
 
-% 2 Clubs
+\label{sec:2C}
 \newcommand{\twoclowtext}{11} % 2C point range
 \newcommand{\twochightext}{15}
 \newcommand{\twocldescribe}{6+ clubs}
@@ -255,7 +256,7 @@
 %\setboolean{neg2h}{true}
 \newcommand{\twoclresponse}{2\,\rd\ INV+ inq, 2 M NFC} % Other text on right side of 2C divider
 
-% 2 Diamonds
+\label{sec:2D}
 \newcommand{\twodlowtext}{11} % 2D point range
 \newcommand{\twodhightext}{15}
 \newcommand{\twoddescribe}{three-suited, short \rd}
@@ -267,7 +268,7 @@
 \newcommand{\twodntresp}{\redreg{\bc\,min, \rd: 4=4 M, M: 3-cd}}
 \newcommand{\twodresponse}{}
 
-% 2 Hearts
+\label{sec:2H}
 \newcommand{\twohlowtext}{4}
 \newcommand{\twohhightext}{10-}
 \newcommand{\twohdescribe}{aggressive, esp. NV and 1st}
@@ -279,7 +280,7 @@
 \newcommand{\twohntresp}{Ogust}
 \newcommand{\twohresponse}{}
 
-% 2 Spades
+\label{sec:2S}
 \newcommand{\twoslowtext}{4}
 \newcommand{\twoshightext}{10-}
 \newcommand{\twosdescribe}{as 2\,\rh}
@@ -291,7 +292,7 @@
 \newcommand{\twosntresp}{Ogust}
 \newcommand{\twosresponse}{}
 
-% Bottom of card
+\label{sec:misc}
 \newcommand{\jshifttext}{\redreg{1\,\rd\: see above; 1 M Lim Spl, Fit Jumps by PH or in comp}} % jump shift responses
 \newcommand{\vsstrongart}{} % vs str/VS openings
 \setboolean{nmf1w}{true} % 1-way new minor
@@ -304,7 +305,7 @@
 
 % Back of card (left to right, top to bottom)
 
-% Doubles
+\label{sec:X}
 \setboolean{negax}{true} % Negative doubles through...
 \newcommand{\negaxthru}{4\,\rh}
 %\setboolean{penax}{true} % Penalty
@@ -317,7 +318,7 @@
 \newcommand{\toxstyletext}{}
 \newcommand{\doubleothertext}{\textcolor{black}{2 lvl freq. T/O, 3 lvl freq. DSI}} % Other special doubles
 
-% NT overcalls
+\label{sec:NT_Overcall}
 \newcommand{\directlowtext}{15\,+} % range
 \newcommand{\directhightext}{18}
 \setboolean{syson}{true} % systems on
@@ -329,7 +330,7 @@
 \setboolean{unu2l}{true} % Unusual: 2 lowers
 \newcommand{\ntothertext}{} % conventional overcalls (sandwich etc)
 
-% Overcalls
+\label{sec:Overcalls}
 \newcommand{\oclowtext}{6} % 1-level point range
 \newcommand{\ochightext}{+}
 %\setboolean{oc4cd}{true}
@@ -352,7 +353,7 @@
 \setboolean{occus}{true} % cue response support?
 \newcommand{\overcallothertext}{} % Other responses
 
-% Defense vs. NT
+\label{sec:NT_Defence}
 \newcommand{\firstcondition}{All/All} % ''vs.'' line, first half
 \newcommand{\firstvsdbl}{\bc\ or \rd\ or \rh\ + \bs}   % 1NT-X
 \newcommand{\firstvstwocl}{\hspace{2mm}\bc\ + M} % 1NT-2C
@@ -369,7 +370,7 @@
 \newcommand{\secondvstwont}{}
 \newcommand{\othernt}{} % other NT defense info
 
-% Direct cuebid
+\label{sec:Cuebid}
 %\setboolean{qamim}{true} % Michaels - Art minor
 \setboolean{qqmim}{true} %         - Quasi Natural minor
 \setboolean{qnmim}{true} %         - Natural minor
@@ -384,7 +385,7 @@
 %\setboolean{qnmao}{true}
 \newcommand{\cuebiddescribe}{} % other cuebid comments
 
-% vs. takeout double
+\label{sec:vs_TOX}
 %\setboolean{nsf2l}{true} % New suit forcing at 2 level?
 %\setboolean{xnstf}{true} % New suit transfer?
 \newcommand{\toxtrftext}{} % transfers through?
@@ -405,7 +406,7 @@
 \newcommand{\xtwontmajormax}{+}
 \newcommand{\toxothertext}{} % Line at bottom of Opps TOX section
 
-% Opening preempts
+\label{sec:Preempts}
 \newcommand{\threelevelstyletop}{}
 \newcommand{\threelevelstylebottom}{\hspace{6mm}Aggressive, esp. majors}
 \newcommand{\threelevelresp}{}
@@ -414,7 +415,7 @@
 %\setboolean{namya}{true}
 \newcommand{\fourlevelother}{}
 
-% vs. opening preempts
+\label{sec:vs_Preempts}
 \newcommand{\optwontoc}{15--18} % (2x)-2NT
 \setboolean{opdto}{true}
 \newcommand{\opdtothru}{4\,\rh} % Takeout through...
@@ -425,7 +426,7 @@
 \newcommand{\opjumpoc}{}
 \newcommand{\opothertext}{} % Other line
 
-% Slam conventions
+\label{sec:Slams}
 \setboolean{gednt}{true} % Gerber
 \setboolean{geseq}{true} % NT Seq G
 %\setboolean{genon}{true} % non-seq G
@@ -438,7 +439,7 @@
 \newcommand{\slaminterftext}{DOP1/DEPO $\rightarrow$ 5 trump}
 \newcommand{\slamothertext}{} % slam convention info
 
-% Carding
+\label{sec:Carding}
 \setboolean{stasu}{true} % std attitude vs suits
 \setboolean{stcsu}{true} % count
 %\setboolean{udasu}{true} % upside down attitude suits
@@ -454,7 +455,7 @@
 \newcommand{\othercardingtext}{}
 \newcommand{\trumpsignaltext}{}
 
-% Signals
+\label{sec:Signals}
 % Two alternatives here:
 %    1. uncomment the setboolean to check the box that is "primary signal", as the card suggests.
 %    2. Do not uncomment any checkbox, but rank the entries by putting a single
@@ -481,12 +482,12 @@
 %\setboolean{odd1d}{true} % Odd/Even
 %\setboolean{oth1d}{true} % Other
 
-% Leads:
+\label{sec:Leads_Suit}
 % indicate whether to circle the 1st, 2nd, etc. card (more than one, or zero, is OK)
 % e.g. if you lead Ace from Ace-King, \newcommand{AKx}{1}
 % e.g. if you lead the default from Queen-Jack, \newcommand{QJx}{}
 
-% Leads vs suit
+\label{subsec:Leads_Suit}
 \setboolean{su4th}{true} % 4th best vs. suit
 %\setboolean{su3rd}{true} % 3/5 suit
 %\setboolean{su3lo}{true} % 3/low suit
@@ -513,7 +514,7 @@
 \newcommand{\suitexcepttop}{}
 \newcommand{\suitexceptbottom}{}
 
-% Leads vs. NT
+\label{subsec:Leads_NT}
 \setboolean{nt4th}{true} % 4th best vs. NT
 %\setboolean{nt3rd}{true} % 3/5 NT
 %\setboolean{nt3lo}{true}
